@@ -1,3 +1,5 @@
+Ask ChatGPT API how to do something in the Linux terminal 
+
 # Install
 * `make install`
 
