@@ -17,11 +17,15 @@ def check_token() -> None:
 
 
 def drop_first_and_last_code_quote(s: str) -> str:
+    if s[0:3] == "```":
+        s = s[3:]
+    if s[-3:] == "```":
+        s = s[:-3]
     if s[0] == "`":
         s = s[1:]
     if s[-1] == "`":
         s = s[:-1]
-    return s
+    return s.strip()
 
 
 def ask_gpt():

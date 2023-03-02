@@ -2,4 +2,4 @@
 * `make install`
 
 # Usage
-* `how collect the first search result for cats on google`
+* `how find the most common words in a txt file`

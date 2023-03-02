@@ -16,12 +16,16 @@ def check_token() -> None:
         exit(0)
 
 
-def drop_first_and_last_code_quote(s: str) -> str:
+def drop_code_quotes(s: str) -> str:
+    if s[0:3] == "```":
+        s = s[3:]
+    if s[-3:] == "```":
+        s = s[:-3]
     if s[0] == "`":
         s = s[1:]
     if s[-1] == "`":
         s = s[:-1]
-    return s
+    return s.strip()
 
 
 def ask_gpt():
@@ -45,4 +49,4 @@ def ask_gpt():
 
     choises = response.json()["choices"]
     for choise in choises:
-        console.print(drop_first_and_last_code_quote(choise["message"]["content"]))
+        console.print(drop_code_quotes(choise["message"]["content"]))
